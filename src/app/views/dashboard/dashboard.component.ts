@@ -9,9 +9,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
   styleUrl: './dashboard.component.scss'
 })
 export class DashboardComponent {
-  constructor(private authService: AuthService){}
+  constructor(){}
 
-  removetoken(){
-    this.authService.removeToken();
-  }
+ 
 }

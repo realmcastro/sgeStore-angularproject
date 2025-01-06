@@ -3,11 +3,11 @@
       <h2>Login</h2>
   
       <form #myForm="ngForm" (submit)="login()" novalidate>
-        <input id="in_label_username" type="text" [(ngModel)]="username" name="username" required />
         <label for="in_label_username">Usuário</label>
-  
-        <input id="in_label_password" type="password" [(ngModel)]="password" name="password" required />
+        <input id="in_label_username" type="text" [(ngModel)]="username" name="username" required />
+        
         <label for="in_label_password">Senha</label>
+        <input id="in_label_password" type="password" [(ngModel)]="password" name="password" required />
   
         <h4 style="color: black" ngIf="errorMessage">{{errorMessage}}</h4>
   

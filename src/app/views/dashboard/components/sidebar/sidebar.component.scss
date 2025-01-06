@@ -1,0 +1,25 @@
+.navbar {
+    max-height: 10vh;
+    background-color: #303443 !important;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px 5px 5px 5px;
+
+}
+.bi-list, .btn-close {
+    color: white !important;
+    fill: white !important;
+  }
+  
+.offcanvas {
+    background-color: #44485a;
+    color: white;
+}
+@media screen and (min-width: 100px) and (max-width: 600px){
+    .navbar {
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px 5px 5px 5px;
+    }
+}
