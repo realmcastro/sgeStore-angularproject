@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../../../services/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-sidebar',
   imports: [],
@@ -8,8 +8,11 @@ import { AuthService } from '../../../../services/auth.service';
   styleUrl: './sidebar.component.scss'
 })
 export class SidebarComponent {
-  constructor(private authService: AuthService){}
+    constructor(private router: Router,
+    private authService: AuthService
+  ){}
   removetoken(){
     this.authService.removeToken();
+    this.router.navigate(['/login']);
   }
 }

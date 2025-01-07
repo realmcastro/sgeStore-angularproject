@@ -3,7 +3,6 @@ import { ApiService } from '../../services/api.service';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-login',
   imports: [
@@ -24,6 +23,8 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router
   ) {}
+
+  
 
   login(): void {
     if (this.username && this.password) {

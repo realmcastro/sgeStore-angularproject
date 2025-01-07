@@ -41,6 +41,11 @@ export class AuthService {
       return false;
     }
   }
+  getUser(){
+    const token: any = this.token;
+    let tokenDecode: any = jwtDecode(token);
+    return tokenDecode.role
+  }
 
   isAuthenticated(): boolean {
     return !!this.token;

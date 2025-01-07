@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,19 +9,21 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private readonly API_URL = 'http://127.0.0.1:8000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private auth: AuthService) {}
 
   post(endpoint: string, body: any): Observable<any> {
-    const headers = this.createAuthHeaders();
-    return this.http.post<any>(`${this.API_URL}/${endpoint}`, body, { headers });
+    return this.http.post<any>(`${this.API_URL}/${endpoint}`, body);
   }
 
-  private createAuthHeaders(): HttpHeaders {
-    let headers = new HttpHeaders();
-    const token = localStorage.getItem('jwt_token');
-    if (token) {
-      headers = headers.set('Authorization', `Bearer ${token}`);
-    }
-    return headers;
+  get(endpoint: string): Observable<any> {
+    return this.http.get<any>(`${this.API_URL}/${endpoint}`);
+  }
+
+  put(endpoint: string, body: any): Observable<any> {
+    return this.http.put<any>(`${this.API_URL}/${endpoint}`, body);
+  }
+
+  delete(endpoint: string): Observable<any> {
+    return this.http.delete<any>(`${this.API_URL}/${endpoint}`);
   }
 }

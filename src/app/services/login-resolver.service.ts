@@ -14,7 +14,9 @@ export class LoginResolver implements Resolve<boolean> {
 
     if (token) {
       if (this.authService.isTokenValid(token)) {
-        this.router.navigate(['/dashboard']); // Redireciona para o dashboard se o token for válido
+        setTimeout(() => {
+          this.router.navigate(['/dashboard']);
+        }, 100);
         return false;
       } else {
         this.authService.removeToken();

@@ -1,0 +1,8 @@
+<section>
+    <div class="user-text" *ngIf="info">Bem vindo,<br>{{
+    info}}!</div>
+
+    <div class="info-sales" *ngIf="dataSale">{{dataSale.date}}<br>
+   Caixa R$: {{dataSale.total_sales}}
+    </div>
+</section>

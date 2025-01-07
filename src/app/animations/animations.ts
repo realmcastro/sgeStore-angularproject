@@ -11,7 +11,7 @@ import {
     transition('* <=> *', [
       style({ position: 'relative' }),
       query(':enter, :leave', [
-        style({ position: 'absolute', width: '100%' })
+        style({ position: 'relative', width: '100%' })
       ], { optional: true }),
       group([
         query(':enter', [
