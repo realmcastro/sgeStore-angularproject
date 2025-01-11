@@ -11,6 +11,6 @@ export const appConfig: ApplicationConfig = {
         BrowserAnimationsModule,
         provideAnimationsAsync(),
         provideRouter(appRoutes),
-        provideHttpClient(withInterceptors([AuthInterceptor]))
+        provideHttpClient(withFetch(),withInterceptors([AuthInterceptor]))
     ]
 };

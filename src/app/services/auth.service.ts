@@ -32,17 +32,28 @@ export class AuthService {
   }
 
   isTokenValid(token: string): boolean {
+    if (!token || typeof token !== 'string') {
+      console.error('Token perdido ou inválido:', token);
+      return false; 
+    }
+  
     try {
       const decodedToken: any = jwtDecode(token);
-      const currentTime = Math.floor(Date.now() / 1000); 
+      const currentTime = Math.floor(Date.now() / 1000);
       return decodedToken.exp > currentTime; 
     } catch (error) {
       this.removeToken();
       return false;
     }
   }
+  
   getUser(){
     const token: any = this.token;
+
+    if (!token || typeof token !== 'string') {
+      console.error('Token perdido ou inválido:', token);
+      return false; 
+    }
     let tokenDecode: any = jwtDecode(token);
     return tokenDecode.role
   }
