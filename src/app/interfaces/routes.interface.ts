@@ -11,7 +11,7 @@ export interface RouteChild {
     
   export const routes: Record<string, Route> = {
     user: {
-      name: "User Management",
+      name: "Gerenciamento de Usuário",
       path: "user/",
       children: {
         create_user: { name: "Criar Usuário", path: "create_user/" },
@@ -22,7 +22,7 @@ export interface RouteChild {
       }
     },
     stock: {
-      name: "Stock Management",
+      name: "Gerenciamento de Estoque",
       path: "stock/",
       children: {
         create_product: { name: "Criar Produto", path: "create_product/" },
@@ -32,7 +32,7 @@ export interface RouteChild {
       }
     },
     sales: {
-      name: "Sales Management",
+      name: "Gerenciamento de Vendas",
       path: "sales/",
       children: {
         make_sale: { name: "Registrar Venda", path: "makeSale/" },
@@ -41,7 +41,7 @@ export interface RouteChild {
       }
     },
     data: {
-      name: "Data Analysis",
+      name: "Análise de data",
       path: "data/",
       children: {
         data_sale: { name: "Gráfico de Vendas", path: "dataSale/" },

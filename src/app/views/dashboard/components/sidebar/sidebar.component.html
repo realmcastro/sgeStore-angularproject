@@ -11,36 +11,46 @@
     </a>
   </div>
 
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas offcanvas-end togglecanvas" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasRightLabel">Offcanvas right</h5>
+      <h5 class="offcanvas-title" id="offcanvasRightLabel">Ferramentas</h5>
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-      <!-- Dropdowns -->
-      <div class="container mt-4">
-        <div *ngFor="let section of routeStruct | keyvalue">
-          <div class="dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-              data-bs-toggle="dropdown" aria-expanded="false">
+    <div class="offcanvas-body d-flex flex-column">
+      <!-- Accordion -->
+      <div class="accordion" id="accordionExample">
+        <div *ngFor="let section of routeStruct | keyvalue; let i = index" class="accordion-item">
+          <h2 class="accordion-header" id="heading{{ i }}">
+            <button 
+              class="accordion-button collapsed bg-light-subtle" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              [attr.data-bs-target]="'#collapse' + i" 
+              [attr.aria-expanded]="false" 
+              [attr.aria-controls]="'collapse' + i">
               {{ section.value.name }}
             </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li *ngFor="let child of section.value.children | keyvalue">
-                <a class="dropdown-item" 
-      
-                >{{ child.value.name }}</a>
-              </li>
-            </ul>
+          </h2>
+          <div 
+            id="collapse{{ i }}" 
+            class="accordion-collapse collapse" 
+            [attr.aria-labelledby]="'heading' + i" 
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body bg-light-subtle">
+              <ul class="list-unstyled d-flex flex-column gap-3">
+                <li *ngFor="let child of section.value.children | keyvalue">
+                  <a (click)="admin_required()" style="cursor: pointer;" class="d-block text-decoration-none">{{ child.value.name }}</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
 
       <!-- Logout button -->
-      <button class="btn btn-outline-danger" (click)="removetoken()">
+      <button class=" align-self-end btn btn-outline-danger mt-4" (click)="toggleCanvasClass()">
         <i class="bi bi-box-arrow-right"></i> Logout
       </button>
     </div>
   </div>
 </nav>
-<!-- [routerLink]="child.value.path" -->
