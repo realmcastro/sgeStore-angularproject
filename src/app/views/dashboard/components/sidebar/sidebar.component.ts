@@ -46,7 +46,7 @@ export class SidebarComponent {
   toast_error(){
     if (window.Toastify) {
       window.Toastify({
-        text: "Não autorizado!",
+        text: "Não autorizado! ",
         duration: 3000,  
         close: false,     
         gravity: "top",  
