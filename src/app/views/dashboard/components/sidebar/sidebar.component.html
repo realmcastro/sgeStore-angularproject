@@ -17,7 +17,6 @@
       <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body d-flex flex-column">
-      <!-- Accordion -->
       <div class="accordion" id="accordionExample">
         <div *ngFor="let section of routeStruct | keyvalue; let i = index" class="accordion-item">
           <h2 class="accordion-header" id="heading{{ i }}">
@@ -39,7 +38,7 @@
             <div class="accordion-body bg-light-subtle">
               <ul class="list-unstyled d-flex flex-column gap-3">
                 <li *ngFor="let child of section.value.children | keyvalue">
-                  <a (click)="admin_required()" style="cursor: pointer;" class="d-block text-decoration-none">{{ child.value.name }}</a>
+                  <a style="cursor: pointer;" class="d-block text-decoration-none">{{ child.value.name }}</a>
                 </li>
               </ul>
             </div>
